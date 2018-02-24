@@ -7,14 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.LinkedList;
 
 import taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.DetailActivity;
-import taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.MainActivity;
 import taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.R;
 
 /**
@@ -35,7 +33,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     @Override
     public ListItemAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_item,parent,false);
+                .inflate(R.layout.list_item, parent, false);
         return new ViewHolder(v);
     }
 
@@ -52,8 +50,9 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, DetailActivity.class);
-                intent.putExtra("title",listItem.getTitle());
-                intent.putExtra("description",listItem.getDescription());
+                intent.putExtra("title", listItem.getTitle());
+                intent.putExtra("description", listItem.getDescription());
+                intent.putExtra("foto", listItem.getFoto());
                 context.startActivity(intent);
             }
         });
@@ -74,9 +73,9 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
             super(itemView);
 
             textViewTitle = itemView.findViewById(R.id.titleProduct);
-            textViewDescription= itemView.findViewById(R.id.description);
+            textViewDescription = itemView.findViewById(R.id.description);
             cardView = itemView.findViewById(R.id.cardView);
-            linearLayout= itemView.findViewById(R.id.linearLayout);
+            linearLayout = itemView.findViewById(R.id.linearLayout);
         }
     }
 }

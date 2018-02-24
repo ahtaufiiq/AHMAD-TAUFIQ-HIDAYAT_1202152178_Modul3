@@ -2,9 +2,8 @@ package taufiq.com.ahmadtaufiqhidayat_1202152178_modul3;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -27,7 +26,7 @@ public class SplashScreen extends Activity {
                                       public void run() {
 
                                           //mengatur intent SplashScreen ke Main Activity
-                                          Intent i = new Intent(SplashScreen.this, MainActivity.class);
+                                          Intent i = new Intent(SplashScreen.this, LoginActivity.class);
                                           startActivity(i);
                                           //menampilkan toast
                                           Toast.makeText(SplashScreen.this, "AHMAD TAUFIQ HIDAYAT_1202152178", Toast.LENGTH_LONG).show();
