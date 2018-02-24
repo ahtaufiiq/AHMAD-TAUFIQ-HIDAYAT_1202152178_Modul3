@@ -7,14 +7,33 @@
     android:orientation="vertical"
     tools:context="taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.DetailActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/ades"/>
     <TextView
         android:id="@+id/titleDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Ades"/>
 
     <TextView
         android:id="@+id/descriptionDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Description"/>
+    <ImageView
+        android:id="@+id/battery"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/level_list_battery"
+        />
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+/>
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.LinkedList;
@@ -45,7 +46,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
 
         holder.textViewTitle.setText(listItem.getTitle());
         holder.textViewDescription.setText(listItem.getDescription());
-        holder.imageView.setImageResource(listItem.getFoto());
+        holder.linearLayout.setBackgroundResource(listItem.getFoto());
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +67,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewTitle;
         public TextView textViewDescription;
-        public ImageView imageView;
+        public LinearLayout linearLayout;
         public CardView cardView;
 
         public ViewHolder(View itemView) {
@@ -75,7 +76,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
             textViewTitle = itemView.findViewById(R.id.titleProduct);
             textViewDescription= itemView.findViewById(R.id.description);
             cardView = itemView.findViewById(R.id.cardView);
-            imageView= itemView.findViewById(R.id.imageProduct);
+            linearLayout= itemView.findViewById(R.id.linearLayout);
         }
     }
 }

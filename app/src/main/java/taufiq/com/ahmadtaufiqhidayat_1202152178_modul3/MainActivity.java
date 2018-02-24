@@ -28,15 +28,18 @@ public class MainActivity extends AppCompatActivity {
 
         listItems = new LinkedList<>();
 
-        for (int i =0; i<=10;i++){
-            ListItem listItem = new ListItem(
-                    "heading"+ i+1,
-                    "Lorem Ipsum dummy text",
-                    R.drawable.ic_launcher_background
-            );
+        listItems.add(new ListItem("Ades","Description",R.drawable.ades));
+        listItems.add(new ListItem("Amidis","Description",R.drawable.aqua));
+        listItems.add(new ListItem("Aqua","Description",R.drawable.amidis));
+        listItems.add(new ListItem("Cleo","Description",R.drawable.cleo));
+        listItems.add(new ListItem("Club","Description",R.drawable.club));
+        listItems.add(new ListItem("Equil","Description",R.drawable.equil));
+        listItems.add(new ListItem("Evian","Description",R.drawable.evian));
+        listItems.add(new ListItem("Leminerale","Description",R.drawable.leminerale));
+        listItems.add(new ListItem("Nestle","Description",R.drawable.nestle));
+        listItems.add(new ListItem("Pristine","Description",R.drawable.pristine));
+        listItems.add(new ListItem("Vit","Description",R.drawable.vit));
 
-            listItems.add(listItem);
-        }
         adapter = new ListItemAdapter(listItems,this);
 
         recyclerView.setAdapter(adapter);
