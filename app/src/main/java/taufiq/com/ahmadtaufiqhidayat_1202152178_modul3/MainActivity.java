@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
         for (int i =0; i<=10;i++){
             ListItem listItem = new ListItem(
                     "heading"+ i+1,
-                    "Lorem Ipsum dummy text"
+                    "Lorem Ipsum dummy text",
+                    R.drawable.ic_launcher_background
             );
 
             listItems.add(listItem);

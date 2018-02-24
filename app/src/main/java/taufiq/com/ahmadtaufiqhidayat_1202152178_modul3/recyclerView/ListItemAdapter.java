@@ -1,14 +1,19 @@
 package taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.recyclerView;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.LinkedList;
 
+import taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.DetailActivity;
+import taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.MainActivity;
 import taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.R;
 
 /**
@@ -36,11 +41,21 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     @Override
     public void onBindViewHolder(ListItemAdapter.ViewHolder holder, int position) {
 
-        ListItem listItem = listItems.get(position);
+        final ListItem listItem = listItems.get(position);
 
         holder.textViewTitle.setText(listItem.getTitle());
         holder.textViewDescription.setText(listItem.getDescription());
+        holder.imageView.setImageResource(listItem.getFoto());
 
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("title",listItem.getTitle());
+                intent.putExtra("description",listItem.getDescription());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -51,14 +66,16 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         public TextView textViewTitle;
         public TextView textViewDescription;
+        public ImageView imageView;
+        public CardView cardView;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
             textViewTitle = itemView.findViewById(R.id.titleProduct);
             textViewDescription= itemView.findViewById(R.id.description);
-
-
+            cardView = itemView.findViewById(R.id.cardView);
+            imageView= itemView.findViewById(R.id.imageProduct);
         }
     }
 }

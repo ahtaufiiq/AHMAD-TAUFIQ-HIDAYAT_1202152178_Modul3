@@ -27,7 +27,7 @@ public class SplashScreen extends Activity {
                                       public void run() {
 
                                           //mengatur intent SplashScreen ke Main Activity
-                                          Intent i = new Intent(SplashScreen.this, LoginActivity.class);
+                                          Intent i = new Intent(SplashScreen.this, MainActivity.class);
                                           startActivity(i);
                                           //menampilkan toast
                                           Toast.makeText(SplashScreen.this, "AHMAD TAUFIQ HIDAYAT_1202152178", Toast.LENGTH_LONG).show();
