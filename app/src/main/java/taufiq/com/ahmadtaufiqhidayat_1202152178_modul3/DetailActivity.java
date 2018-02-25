@@ -1,15 +1,18 @@
 package taufiq.com.ahmadtaufiqhidayat_1202152178_modul3;
 
 import android.content.Intent;
-import android.graphics.drawable.LevelListDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DetailActivity extends AppCompatActivity {
+
+    ImageView fotoProduct, battery;
+    TextView title, description, ukuran;
+    int levelCurrent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,46 +25,50 @@ public class DetailActivity extends AppCompatActivity {
         int mFoto = intent.getIntExtra("foto", 0);
 
 
-        TextView title = findViewById(R.id.titleDetail);
+        title = findViewById(R.id.titleDetail);
         title.setText(mTitle);
 
-        TextView description = findViewById(R.id.descriptionDetail);
+        description = findViewById(R.id.descriptionDetail);
         description.setText(mDescription);
 
-        ImageView imageView = findViewById(R.id.imageDetail);
-        imageView.setImageResource(mFoto);
+        fotoProduct = findViewById(R.id.imageDetail);
+        fotoProduct.setImageResource(mFoto);
 
-        final ImageView battery = findViewById(R.id.battery);
-
-        Button minusBtn = findViewById(R.id.minusBtn);
-        minusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LevelListDrawable listDrawable = (LevelListDrawable) battery.getDrawable();
-                int levelCurrent = listDrawable.getLevel();
-                if (levelCurrent == 0) {
-
-                } else {
-                    battery.setImageLevel((levelCurrent - 1));
-                }
-            }
-        });
-
-        Button plusBtn = findViewById(R.id.plusBtn);
-        plusBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LevelListDrawable listDrawable = (LevelListDrawable) battery.getDrawable();
-                int levelCurrent = listDrawable.getLevel();
-                if (levelCurrent == 6) {
-
-                } else {
-                    battery.setImageLevel((levelCurrent + 1));
-                }
-            }
-        });
-
+        ukuran = findViewById(R.id.liter);
+        battery = findViewById(R.id.battery);
+        levelCurrent = battery.getDrawable().getLevel();
 
     }
 
+    //method yang akan dieksekusi ketika button minus di klik
+    public void minus(View view) {
+        levelCurrent = battery.getDrawable().getLevel();
+        if (levelCurrent - 1 >= 0) {
+            //set text view dengan ukuran yang didapatkan - 1
+            ukuran.setText((levelCurrent - 1) + "L");
+            //Set Image Battery
+            battery.setImageLevel(levelCurrent - 1);
+        } else {
+            //minimum levelCurrent
+            levelCurrent = 0;
+            //maka akan muncul toast yang memberi tahu bahwa air sedikit
+            Toast.makeText(this, "Air Sedikit", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    //method yang akan dieksekusi ketika button plus di klik
+    public void plus(View view) {
+        levelCurrent = battery.getDrawable().getLevel();
+        if (levelCurrent + 1 <= 6) {
+            //set text view dengan ukuran yang sudah didapatkan + 1
+            ukuran.setText((levelCurrent + 1) + "L");
+            //maka set image battery dengan battery satu tingkat sebelum level tertinggi
+            battery.setImageLevel(levelCurrent + 1);
+        } else {
+            //maksimum levelCurrent
+            levelCurrent = 6;
+            //maka akan muncul toast yang memberi tahu bahwa air sudah full
+            Toast.makeText(this, "Air Sudah Full", Toast.LENGTH_LONG).show();
+        }
+    }
 }

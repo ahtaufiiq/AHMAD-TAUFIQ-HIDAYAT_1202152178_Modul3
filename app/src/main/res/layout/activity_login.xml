@@ -7,15 +7,17 @@
     tools:context="taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.LoginActivity">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="@dimen/margin_24"
-        android:src="@drawable/ic_launcher_background" />
+        android:layout_gravity="center"
+        android:src="@drawable/splash" />
 
     <EditText
         android:id="@+id/username"
         android:layout_marginTop="@dimen/margin_24"
         android:ems="10"
+        android:hint="Username"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:layout_height="wrap_content" />
@@ -24,6 +26,7 @@
         android:id="@+id/password"
         android:layout_marginTop="@dimen/margin_24"
         android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword"
         android:layout_width="wrap_content"
         android:layout_gravity="center"
