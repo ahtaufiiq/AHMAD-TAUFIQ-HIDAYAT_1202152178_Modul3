@@ -24,6 +24,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     private final LinkedList<ListItem> listItems;
     private Context context;
 
+    //create constructor
     public ListItemAdapter(LinkedList<ListItem> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
@@ -42,10 +43,14 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
 
         final ListItem listItem = listItems.get(position);
 
+        //set Text title to screen
         holder.textViewTitle.setText(listItem.getTitle());
+        //set text to description view
         holder.textViewDescription.setText(listItem.getDescription());
+        //set background for list item
         holder.linearLayout.setBackgroundResource(listItem.getFoto());
 
+        //if click cardView intent to detailActivity and putextra data title, description, and foto
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +65,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
 
     @Override
     public int getItemCount() {
+        //check ukuran listItems
         return listItems.size();
     }
 
@@ -72,6 +78,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
         public ViewHolder(View itemView) {
             super(itemView);
 
+            //find View in layout
             textViewTitle = itemView.findViewById(R.id.titleProduct);
             textViewDescription = itemView.findViewById(R.id.description);
             cardView = itemView.findViewById(R.id.cardView);

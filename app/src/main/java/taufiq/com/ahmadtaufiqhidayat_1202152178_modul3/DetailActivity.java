@@ -19,23 +19,29 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        //find Intent from Main Activity
         Intent intent = getIntent();
         String mTitle = intent.getStringExtra("title");
         String mDescription = intent.getStringExtra("description");
         int mFoto = intent.getIntExtra("foto", 0);
 
-
+        //find TextView then set title to view
         title = findViewById(R.id.titleDetail);
         title.setText(mTitle);
 
+        //find TextView then set description to view
         description = findViewById(R.id.descriptionDetail);
         description.setText(mDescription);
 
+        //find ImageVIew then set foto to view
         fotoProduct = findViewById(R.id.imageDetail);
         fotoProduct.setImageResource(mFoto);
 
+        //find view liter
         ukuran = findViewById(R.id.liter);
+        //find view battery
         battery = findViewById(R.id.battery);
+        //find levelCurrent Battery
         levelCurrent = battery.getDrawable().getLevel();
 
     }

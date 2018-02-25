@@ -23,11 +23,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //find RecyclerView
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
 
+        //check orientation screen
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            //maka akan menampilkan 2 grid
+            //Jika landscape maka akan menampilkan 2 grid
             recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
             //jika orientasi menjadi portrait
         } else {
@@ -36,8 +38,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+        //Create variabel LinkedList for save data
         listItems = new LinkedList<>();
 
+        //adding data
         listItems.add(new ListItem("Ades", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris ligula, blandit sit amet mi nec, egestas convallis lectus. Vestibulum lectus ligula, porttitor et ex eget, porttitor rhoncus enim. Vestibulum cursus libero vitae rhoncus porttitor. Nunc tincidunt sit amet magna et tincidunt. Suspendisse vestibulum sollicitudin tincidunt. Nam nunc urna, tempus quis mi non, sodales rhoncus lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc nisi ipsum, porta at tempor in, semper a nulla. In porttitor mattis mauris eu lobortis. Sed lacinia libero turpis, non tempor ligula volutpat eu. Pellentesque ultricies purus vitae arcu rhoncus rutrum.", R.drawable.ades));
         listItems.add(new ListItem("Amidis", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris ligula, blandit sit amet mi nec, egestas convallis lectus. Vestibulum lectus ligula, porttitor et ex eget, porttitor rhoncus enim. Vestibulum cursus libero vitae rhoncus porttitor. Nunc tincidunt sit amet magna et tincidunt. Suspendisse vestibulum sollicitudin tincidunt. Nam nunc urna, tempus quis mi non, sodales rhoncus lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc nisi ipsum, porta at tempor in, semper a nulla. In porttitor mattis mauris eu lobortis. Sed lacinia libero turpis, non tempor ligula volutpat eu. Pellentesque ultricies purus vitae arcu rhoncus rutrum.", R.drawable.aqua));
         listItems.add(new ListItem("Aqua", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris ligula, blandit sit amet mi nec, egestas convallis lectus. Vestibulum lectus ligula, porttitor et ex eget, porttitor rhoncus enim. Vestibulum cursus libero vitae rhoncus porttitor. Nunc tincidunt sit amet magna et tincidunt. Suspendisse vestibulum sollicitudin tincidunt. Nam nunc urna, tempus quis mi non, sodales rhoncus lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc nisi ipsum, porta at tempor in, semper a nulla. In porttitor mattis mauris eu lobortis. Sed lacinia libero turpis, non tempor ligula volutpat eu. Pellentesque ultricies purus vitae arcu rhoncus rutrum.", R.drawable.amidis));
@@ -50,11 +54,13 @@ public class MainActivity extends AppCompatActivity {
         listItems.add(new ListItem("Pristine", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris ligula, blandit sit amet mi nec, egestas convallis lectus. Vestibulum lectus ligula, porttitor et ex eget, porttitor rhoncus enim. Vestibulum cursus libero vitae rhoncus porttitor. Nunc tincidunt sit amet magna et tincidunt. Suspendisse vestibulum sollicitudin tincidunt. Nam nunc urna, tempus quis mi non, sodales rhoncus lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc nisi ipsum, porta at tempor in, semper a nulla. In porttitor mattis mauris eu lobortis. Sed lacinia libero turpis, non tempor ligula volutpat eu. Pellentesque ultricies purus vitae arcu rhoncus rutrum.", R.drawable.pristine));
         listItems.add(new ListItem("Vit", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean mauris ligula, blandit sit amet mi nec, egestas convallis lectus. Vestibulum lectus ligula, porttitor et ex eget, porttitor rhoncus enim. Vestibulum cursus libero vitae rhoncus porttitor. Nunc tincidunt sit amet magna et tincidunt. Suspendisse vestibulum sollicitudin tincidunt. Nam nunc urna, tempus quis mi non, sodales rhoncus lacus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc nisi ipsum, porta at tempor in, semper a nulla. In porttitor mattis mauris eu lobortis. Sed lacinia libero turpis, non tempor ligula volutpat eu. Pellentesque ultricies purus vitae arcu rhoncus rutrum.", R.drawable.vit));
 
+        //add data to adapter
         adapter = new ListItemAdapter(listItems, this);
-
+        //set adapter
         recyclerView.setAdapter(adapter);
     }
 
+    //Check jika terjadi perubahan orienttation
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);

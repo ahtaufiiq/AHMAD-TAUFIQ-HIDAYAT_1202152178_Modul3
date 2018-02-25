@@ -6,11 +6,13 @@ package taufiq.com.ahmadtaufiqhidayat_1202152178_modul3.recyclerView;
 
 public class ListItem {
 
+    //inisiasi variabel
     public String title;
     public String description;
     public int foto;
 
 
+    //create constructor
     public ListItem(String title, String description, int foto) {
         this.title = title;
         this.description = description;
@@ -18,14 +20,17 @@ public class ListItem {
     }
 
 
+    //get title
     public String getTitle() {
         return title;
     }
 
+    //get foto
     public int getFoto() {
         return foto;
     }
 
+    //get description
     public String getDescription() {
         return description;
 
