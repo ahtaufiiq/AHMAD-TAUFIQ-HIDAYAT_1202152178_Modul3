@@ -1,8 +1,8 @@
 # Project Title
 Display all 
 bottled water products uding recylerview and Goto Detail if Clicked also using levellistdrawable for gallon can be change
-![](app1.gif)
-![](app2.gif)
+
+![](app1.gif)![](app2.gif)
 
 ## Getting Started
 
