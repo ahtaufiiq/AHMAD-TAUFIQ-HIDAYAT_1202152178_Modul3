@@ -27,15 +27,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
 
-        //check orientation screen
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            //Jika landscape maka akan menampilkan 2 grid
-            recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
-            //jika orientasi menjadi portrait
-        } else {
-            //maka akan menampilkan satu grid saja
-            recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 1));
-        }
+        recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+
 
 
         //Create variabel LinkedList for save data
@@ -60,14 +53,4 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    //Check jika terjadi perubahan orienttation
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
-        } else {
-            recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this, 1));
-        }
-    }
 }

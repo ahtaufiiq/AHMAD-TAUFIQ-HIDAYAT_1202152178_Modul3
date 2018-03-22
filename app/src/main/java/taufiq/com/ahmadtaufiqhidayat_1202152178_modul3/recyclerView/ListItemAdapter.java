@@ -31,6 +31,7 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     }
 
 
+    //Select Layout yang digunakan load data yaitu list_items
     @Override
     public ListItemAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
@@ -38,6 +39,25 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
         return new ViewHolder(v);
     }
 
+    //Select ID dari View from LAyout
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView textViewTitle;
+        public TextView textViewDescription;
+        public LinearLayout linearLayout;
+        public CardView cardView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            //find View in layout
+            textViewTitle = itemView.findViewById(R.id.titleProduct);
+            textViewDescription = itemView.findViewById(R.id.description);
+            cardView = itemView.findViewById(R.id.cardView);
+            linearLayout = itemView.findViewById(R.id.linearLayout);
+        }
+    }
+
+    //Set Data To Layout
     @Override
     public void onBindViewHolder(ListItemAdapter.ViewHolder holder, int position) {
 
@@ -63,26 +83,12 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
         });
     }
 
+    //Menghitung banyaknya data
     @Override
     public int getItemCount() {
         //check ukuran listItems
         return listItems.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textViewTitle;
-        public TextView textViewDescription;
-        public LinearLayout linearLayout;
-        public CardView cardView;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
-
-            //find View in layout
-            textViewTitle = itemView.findViewById(R.id.titleProduct);
-            textViewDescription = itemView.findViewById(R.id.description);
-            cardView = itemView.findViewById(R.id.cardView);
-            linearLayout = itemView.findViewById(R.id.linearLayout);
-        }
-    }
 }

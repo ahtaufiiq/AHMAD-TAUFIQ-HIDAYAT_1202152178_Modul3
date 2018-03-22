@@ -11,28 +11,22 @@ public class ListItem {
     public String description;
     public int foto;
 
-
-    //create constructor
     public ListItem(String title, String description, int foto) {
         this.title = title;
         this.description = description;
         this.foto = foto;
     }
 
-
-    //get title
+    //getter data
     public String getTitle() {
         return title;
     }
 
-    //get foto
-    public int getFoto() {
-        return foto;
-    }
-
-    //get description
     public String getDescription() {
         return description;
+    }
 
+    public int getFoto() {
+        return foto;
     }
 }
